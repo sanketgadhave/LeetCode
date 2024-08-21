@@ -1,12 +1,9 @@
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[i] == 0:
-                    temp = nums[i]
-                    nums[i] = nums[j]
-                    nums[j] = temp
-                else:
-                    break
-
+        left = 0
+        for right in range(len(nums)):
+            if nums[right] != 0:
+                nums[right], nums[left] = nums[left], nums[right]
+                left += 1
+            
         
