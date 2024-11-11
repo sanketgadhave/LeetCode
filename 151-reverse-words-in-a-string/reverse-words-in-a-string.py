@@ -1,6 +1,5 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        word_list = s.split(" ")
-        word_list.reverse()
-        word_list = [word for word in word_list if word.strip()]
-        return ' '.join(word_list)
+        s_list = s.split()
+        s_list.reverse()
+        return ' '.join(word for word in s_list)
