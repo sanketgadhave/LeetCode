@@ -1,18 +1,13 @@
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
-        
-        if len(nums) < 3:
-            return False
-        
-        first = float('inf')
-        second = float('inf')
-        
-        for n in nums:
-            if n <= first:
-                first = n  # smallest so far
-            elif n <= second:
-                second = n  # second smallest
+        min1 = float('inf')
+        middle = float('inf')
+        for i in range(len(nums)):
+            if nums[i] <= min1:
+                min1 = nums[i]
+            elif nums[i] <= middle:
+                middle = nums[i]
             else:
-                return True  # found a triplet
+                return True
         
         return False
