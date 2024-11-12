@@ -1,18 +1,11 @@
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
-        prefix = 0
-        prefix_list = [0] * (len(nums)+1)
+        total_sum = sum(nums)
+        left = 0
         for i in range(len(nums)):
-            prefix = prefix + nums[i]
-            prefix_list[i+1] = prefix
-        
-        postfix_list = [0] *(len(nums)+1)
-        postfix = 0
-        for i in range(len(nums)-1, -1, -1):
-            postfix = postfix + nums[i]
-            postfix_list[i] = postfix
-
-        for i in range(len(nums)):
-            if prefix_list[i] == postfix_list[i+1]:
+            if left == total_sum - left - nums[i]:
                 return i
+            else:
+                left += nums[i]
+        
         return -1
